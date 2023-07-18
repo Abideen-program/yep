@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <div className="w-100 h-[100vh] bg-heroDrop relative">
       <img
-        src="./images/ex.png"
+        src="./images/hero.png"
         alt="heroImage"
         className="absolute -z-50 object-cover md:object-contain w-[100%] h-[100%]"
       />
