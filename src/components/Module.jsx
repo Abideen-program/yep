@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Modules = () => {
   const [filterBy, setFilterBy] = useState("module-one");
   return (
-    <div id="modules" className="w-100 mt-3">
+    <div id="modules" className="w-100 mt-10">
       <h1 className="text-[25px] sm:text-[30px]  font-bold text-center text-[#662E91] mb-2">
         Program Modules
       </h1>
@@ -54,7 +55,49 @@ const Modules = () => {
         </div>
       </div>
 
-      <div className="mt-2 w-100 md:w-[90%] mx-auto border border-[#662E91] p-2 rounded-md">
+      {filterBy === "module-one" && (
+        <motion.div
+          initial={{ y: "10vw", display: "none" }}
+          animate={{ y: 0, display: "block" }}
+          transition={{ delay: 0.5, type: "spring" }}
+          className="mt-2 w-100 md:w-[90%] mx-auto border border-[#662E91] p-2 rounded-md"
+        >
+          <p className="text-justify text-sm">
+            This module during the 2-day Masterclass Session focuses on
+            developing essential employability skills such as effective
+            communication, problem-solving, teamwork, time management, and
+            adaptability, to enhance participants' readiness for the workplace.
+            This module includes career clinic that covers Free CV Review and
+            Assessment Session.
+          </p>
+        </motion.div>
+      )}
+
+      {filterBy === "module-two" && (
+        <motion.div
+          initial={{ y: "10vw", display: "none" }}
+          animate={{ y: 0, display: "block" }}
+          transition={{ delay: 0.5, type: "spring" }}
+          className="mt-2 w-100 md:w-[90%] mx-auto border border-[#662E91] p-2 rounded-md"
+        >
+          <p className="text-justify text-sm">
+            This module during the 2-day Masterclass Session, Participants will
+            acquire the knowledge and skills required to cultivate an
+            entrepreneurial mindset, including innovative thinking, business
+            planning, market analysis, and risk management, empowering them to
+            pursue entrepreneurial opportunities. This module will provide
+            selected graduates with Business startup Box ( Registering a
+            business, free startup business website and other benefits)
+          </p>
+        </motion.div>
+      )}
+
+      {/* <motion.div
+        initial={{ x: "-100vw" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 1, type: "spring" }}
+        className="mt-2 w-100 md:w-[90%] mx-auto border border-[#662E91] p-2 rounded-md"
+      >
         {filterBy === "module-one" && (
           <p className="text-justify text-sm">
             This module during the 2-day Masterclass Session focuses on
@@ -96,7 +139,7 @@ const Modules = () => {
             program will span 4 to 8 weeks depending on internship partner.
           </p>
         )}
-      </div>
+      </motion.div> */}
     </div>
   );
 };

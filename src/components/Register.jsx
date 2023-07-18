@@ -9,9 +9,8 @@ const Register = () => {
           Register Now To Participate
         </h1>
 
-        <p className="text-white md:text-lg text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <p className="text-white md:text-lg text-center font-bold">
+          Join thousands of other youths who are taking charge of their future.
         </p>
 
         <button className="text-[#662E91] bg-[#fff] w-1/2 outline-none p-2 text-lg font-semibold rounded-full hover:scale-90 transition-all duration-500">

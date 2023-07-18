@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { clx } from "../utils/clx";
+import { motion } from "framer-motion";
 
 const linkClass = clx(
   "font-semibold hover:text-[#662E91] transition-all duration-500 ease-out relative before:absolute before:-bottom-[2px] before:left-0 before:w-[100%] before:h-[3px] before:rounded-md before:scale-0 hover:before:scale-50 before:origin-right hover:before:bg-[#662E91]"
@@ -16,7 +17,12 @@ const Header = () => {
   return (
     <>
       {/* DESKTOP HEADER */}
-      <div className="bg-white hidden md:px-10 lg:px-14 py-3 md:flex items-center justify-between fixed right-0 left-0 z-20 border-b-2 border-[#662E91]">
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: -10 }}
+        transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
+        className="bg-white hidden md:px-10 lg:px-14 py-3 md:flex items-center justify-between fixed right-0 left-0 z-20 border-b-2 border-[#662E91]"
+      >
         <div className="w-[30%]">
           <div className="w-[90px]">
             <img
@@ -52,7 +58,7 @@ const Header = () => {
             <p className={linkClass}>Register Now</p>
           </a>
         </div>
-      </div>
+      </motion.div>
       {/* MOBILE */}
       <div className="bg-white lg:hidden px-5 md:px-10 lg:px-14 py-3 flex items-center justify-between fixed right-0 left-0 z-20 border-b-2 border-[#662E91]">
         <div className="w-[30%]">
