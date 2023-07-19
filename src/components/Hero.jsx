@@ -39,7 +39,7 @@ const Hero = () => {
             variants={h1Variants}
             className="text-[25px] sm:text-[30px] md:text-[50px] text-white font-bold leading-[70px] text-center"
           >
-            Youth Executive Program
+            Youth Executive 
           </motion.h1>
 
           <motion.h2
