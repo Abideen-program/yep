@@ -21,7 +21,7 @@ const pOneVariants = {
 
 const pTwoVariants = {
   hidden: { x: "10vw", opacity: 0 },
-  visible: { x: 0, opacity: 1, transition: { delay: 1.5, type: "spring" } },
+  visible: { x: 0, opacity: 1, transition: { delay: 1.2, type: "spring" } },
 };
 
 const Overview = () => {
