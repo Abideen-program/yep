@@ -42,28 +42,24 @@ const Overview = () => {
 
   useEffect(() => {
     if (wrapperInView) {
-      console.log("Wrapper is in view: ", wrapperInView);
       wrapperControl.start("visible");
     }
   }, [wrapperControl, wrapperInView]);
 
   useEffect(() => {
     if (headerInView) {
-      console.log("Header is in view: ", headerInView);
       headerControl.start("visible");
     }
   }, [headerControl, headerInView]);
 
   useEffect(() => {
     if (pOneInView) {
-      console.log("Pone is in view: ", pOneInView);
       pOneControl.start("visible");
     }
   }, [pOneControl, pOneInView]);
 
   useEffect(() => {
     if (pTwoInView) {
-      console.log("PTwo is in view: ", pTwoInView);
       pTwoControl.start("visible");
     }
   }, [pTwoControl, pTwoInView]);
