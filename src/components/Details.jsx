@@ -3,7 +3,7 @@ import { motion, useInView, useAnimation } from "framer-motion";
 import { MdLocationPin, MdOutlineDateRange } from "react-icons/md";
 
 const wrapperVariants = {
-  hidden: { x: "10vw", opacity: 0 },
+  hidden: { x: "-10vw", opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,

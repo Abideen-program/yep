@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
@@ -5,18 +7,68 @@ import { EffectCards } from "swiper/modules";
 
 import { clx } from "../utils/clx";
 
+const wrapperVariants = {
+  hidden: { y: "10vh", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 0.7, type: "spring" },
+  },
+};
+
+const h1Variants = {
+  hidden: { x: "-10vw", opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { delay: 0.5, type: "spring" },
+  },
+};
+
 const swiperSlide = clx(
   "flex flex-col justify-center gap-2 rounded-lg text-lg font-bold text-white p-2"
 );
 
 const Participants = () => {
+  const wrapperRef = useRef(null);
+  const wrapperInView = useInView(wrapperRef);
+  const wrapperControls = useAnimation();
+
+  const h1Ref = useRef(null);
+  const h1InView = useInView(h1Ref);
+  const h1Controls = useAnimation();
+
+  useEffect(() => {
+    if (wrapperInView) {
+      wrapperControls.start("visible");
+    }
+  }, [wrapperInView, wrapperControls]);
+
+  useEffect(() => {
+    if (h1InView) {
+      h1Controls.start("visible");
+    }
+  }, [h1InView, h1Controls]);
+
   return (
     <div id="participants" className="p-5 md:p-10 lg:px-14 lg:py-4">
-      <h1 className="text-[25px] sm:text-[30px]  font-bold leading-[70px] text-center text-[#662E91]">
+      <motion.h1
+        variants={h1Variants}
+        initial="hidden"
+        animate={h1Controls}
+        ref={h1Ref}
+        className="text-[25px] sm:text-[30px]  font-bold leading-[70px] text-center text-[#662E91]"
+      >
         Program Participants
-      </h1>
+      </motion.h1>
 
-      <div className="w-100 flex items-center justify-center">
+      <motion.div
+        variants={wrapperVariants}
+        initial="hidden"
+        animate={wrapperControls}
+        ref={wrapperRef}
+        className="w-100 flex items-center justify-center"
+      >
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -124,7 +176,7 @@ const Participants = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
+      </motion.div>
     </div>
   );
 };
