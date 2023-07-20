@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
 const pVariants = {
-  hidden: { y: "10vh", opacity: 0 },
+  hidden: { x: "10vw", opacity: 0 },
   visible: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: { delay: 0.7, type: "spring" },
   },

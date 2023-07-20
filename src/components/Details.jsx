@@ -1,8 +1,36 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import { MdLocationPin, MdOutlineDateRange } from "react-icons/md";
 
+const wrapperVariants = {
+  hidden: { x: "10vw", opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { delay: 0.7, type: "spring" },
+  },
+};
+
 const Details = () => {
+  const wrapperRef = useRef(null);
+  const wrapperInView = useInView(wrapperRef);
+  const wrapperControls = useAnimation();
+
+  useEffect(() => {
+    if (wrapperInView) {
+      wrapperControls.start("visible");
+    }
+  }, [wrapperInView, wrapperControls]);
+
   return (
-    <div id="details" className="p-5 md:p-10 lg:px-14 lg:py-4">
+    <motion.div
+      variants={wrapperVariants}
+      initial="hidden"
+      animate={wrapperControls}
+      ref={wrapperRef}
+      id="details"
+      className="p-5 md:p-10 lg:px-14 lg:py-4"
+    >
       <div className="md:w-[800px] mx-auto">
         <h1 className="text-[25px] sm:text-[30px]  font-bold leading-[70px] text-center text-[#662E91]">
           Program Details
@@ -25,7 +53,7 @@ const Details = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

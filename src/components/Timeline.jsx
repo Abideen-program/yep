@@ -5,9 +5,9 @@ import { MdOutlineDateRange } from "react-icons/md";
 import TimelineItem from "./TimelineItem";
 
 const imageVariant = {
-  hidden: { y: "10vh", opacity: 0, zIndex: -1 },
+  hidden: { x: "10vw", opacity: 0, zIndex: -1 },
   visible: {
-    y: 0,
+    x: 0,
     opacity: 1,
     zIndex: 0,
     transition: { delay: 0.7, type: "spring" },
@@ -15,9 +15,9 @@ const imageVariant = {
 };
 
 const h1Variants = {
-  hidden: { y: "10vh", opacity: 0 },
+  hidden: { x: "-10vw", opacity: 0 },
   visible: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: { delay: 0.5, type: "spring" },
   },
