@@ -1,6 +1,29 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useAnimation, delay } from "framer-motion";
+
+const wrapperVariants = {
+  hidden: { rotateZ: 180, opacity: 0 },
+  visible: { rotateZ: 0, opacity: 1, transition: { delay: 1, duration: 0.5 } },
+};
+
 const Contact = () => {
+  const wrapperRef = useRef(null);
+  const wrapperInView = useInView(wrapperRef);
+  const wrapperControls = useAnimation();
+
+  useEffect(() => {
+    if (wrapperInView) {
+      wrapperControls.start("visible");
+    }
+  }, [wrapperInView, wrapperControls]);
   return (
-    <div className="p-5 mb-1 md:p-10 lg:px-14 lg:py-4  flex justify-center">
+    <motion.div
+      variants={wrapperVariants}
+      initial="hidden"
+      animate={wrapperControls}
+      ref={wrapperRef}
+      className="p-5 mb-1 md:p-10 lg:px-14 lg:py-4  flex justify-center"
+    >
       <div className="flex flex-col gap-6 items-center justify-center w-[700px]">
         <h1 className="text-[25px] sm:text-[30px]  font-bold text-center text-[#662E91]">
           Contact Us
@@ -41,7 +64,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
